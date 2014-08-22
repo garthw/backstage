@@ -1,4 +1,4 @@
-import re
+import json
 
 
 def compute_difference(number):
@@ -11,3 +11,15 @@ def compute_difference(number):
 
 	difference = squares_of_sum - sum_of_squares
 	return difference
+
+def construct_json(number, result):
+    json_obj = json.dumps({
+            "datetime":current_datetime,
+            "value": solution,
+            "number": number,
+            "occurrences": occurrences
+        })
+
+def sum_occurences(number):
+	occurences = NumberRequest.objects.filter(number=number).count()
+	return occurrences
