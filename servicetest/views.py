@@ -9,6 +9,11 @@ from .models import NumberRequest
 
 def difference(request):
     number = request.GET.get('number', '')
+    if int(number) > 100:
+        return HttpResponse(json.dumps({
+            "Error": "Number greater than 100"
+            }), mimetype='application/json')
+
     result = compute_difference(number)
 
     instance = NumberRequest.objects.create(number=number, value=result)

@@ -1,6 +1,3 @@
-import json
-
-
 def compute_difference(number):
     output = range(int(number) + 1)
     sum_of_squares = 0
