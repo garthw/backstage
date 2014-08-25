@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
 
 import json
 
@@ -25,4 +26,6 @@ def difference(request):
         "occurrences": occurences
         })
 
-    return HttpResponse(json_obj, mimetype='application/json')
+    response = render_to_response('servicetest/servicetest.html', locals(),
+                                  RequestContext(request))
+    return response

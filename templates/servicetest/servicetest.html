@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8">
+        <title>Service Test Base Page| Backstage</title>
+    </head>
+	<body>
+		<div id="servicetest-container">
+		</div>
+		<div id="js-lib-includes">
+			<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+		</div>
+		<div id="js-page-includes">
+			{% load staticfiles %}
+			<script src="{% static 'servicetest/js/backstage.servicetest.js' %}"></script>
+		</div>
+	</body>
+</html>
