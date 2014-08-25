@@ -1,4 +1,4 @@
-;(function (global, $, BS) {
+ var backstage = (function (global, $, BS) {
   'use strict';
 
     var ServiceTestModel = Backbone.Model.extend({
@@ -10,14 +10,16 @@
     ServiceView = Backbone.View.extend({
       model: new ServiceTestModel(),
 
-      template: AS.templates['servicetest-template'],
+      template: BS.templates['servicetest-template'],
 
       initialize: function () {
-        _.bindAll(this);
+        _.bindAll(this, "render");
+        console.log("init");
       },
 
 
       render: function (servicetest) {
+        console.log("rendering");
        
       },
 
