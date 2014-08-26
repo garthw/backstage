@@ -4,11 +4,12 @@
     var ServiceTestModel = Backbone.Model.extend({
       defaults: {
         link: "difference/?number=0",
-
-      },
-      parse: function(response) {
-        return response['servicetest'];
-      },
+        occurrences: 0,
+        value: 0,
+        datetime: "N/A",
+        number: 0,
+        error: ""
+      }
     }),
 
     ServiceView = Backbone.View.extend({
@@ -22,6 +23,7 @@
 
       initialize: function () {
         _.bindAll(this, 'render');
+        this.model.bind('change', this.render);
         this.render();
       },
 
@@ -54,15 +56,25 @@
           crossDomain: true,
 
           success: function(result){
-            console.log("success");
-            console.log(result);
+            // Refactor
+            backstage.serviceTest.model.set("number", result['number']);
+            backstage.serviceTest.model.set("value", result['value']);
+            backstage.serviceTest.model.set("occurrences", result['occurrences']);
+            backstage.serviceTest.model.set("datetime", result['datetime']);
+            backstage.serviceTest.model.set("error", result['Error']);
           }
         });
       },
 
       render: function (servicetest) {
-        this.$el.html(this.template({ 
+        this.$el.html(this.template({
+          // Refactor
           data: this.model,
+          occurrences: this.model.attributes.occurrences,
+          number: this.model.attributes.number,
+          value: this.model.attributes.value,
+          datetime: this.model.attributes.datetime,
+          error: this.model.attributes.error
         }));
         return this;  
       },
