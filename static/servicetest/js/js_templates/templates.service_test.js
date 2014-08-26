@@ -9,7 +9,7 @@ var backstage = (function (backstage) {
         '<input class="form-update" type="submit" value="Submit"><br><br>',
         '<div>Number Evaluated: <%= number %></div>',
         '<div>Result: <%= value %></div>',
-        '<div>Occurrences: <%= occurrences %></div>',
+        '<div># of Times Calculated: <%= occurrences %></div>',
         '<div>Datetime: <%= datetime %></div>',
         '<% if (error) { %>',
         '<div class="error">Error: <%= error %></div>',
