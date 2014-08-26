@@ -8,6 +8,7 @@ import json
 from .utils import compute_difference
 from .models import NumberRequest
 
+# Pass token instead of using exempt
 @csrf_exempt
 def difference(request):
     number = request.GET.get('number', '')

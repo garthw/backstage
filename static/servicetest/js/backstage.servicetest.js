@@ -44,6 +44,7 @@
       },
 
       submit: function() {
+        // Pass token instead of using exempt
         var csrftoken = this.getCookie('csrftoken');
         var number = $("#num-input").val();
         $.ajax({
@@ -78,7 +79,6 @@
         }));
         return this;  
       },
-
     });
 
     $(function () { BS.serviceTest = new ServiceView({ el: '#servicetest-container' }); })
